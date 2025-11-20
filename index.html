@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -83,81 +83,4 @@ let myName = "";
 
 function signup() {
   const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("pass").value;
-  const username = document.getElementById("username").value.toLowerCase().trim();
-  if (!username) return alert("Choose a username!");
-  auth.createUserWithEmailAndPassword(email, pass)
-    .then(cred => {
-      db.collection("users").doc(cred.user.uid).set({username, created:Date.now(), admin:username==="chirpseadmin"});
-      alert("Welcome forever, @"+username);
-    })
-    .catch(e => alert(e.message));
-}
-
-function login() {
-  auth.signInWithEmailAndPassword(document.getElementById("email").value.trim(), document.getElementById("pass").value)
-    .catch(e => alert(e.message));
-}
-
-auth.onAuthStateChanged(async user => {
-  if (user) {
-    me = user;
-    const snap = await db.collection("users").doc(user.uid).get();
-    myName = snap.data().username || "mysterious capy";
-    document.getElementById("login").style.display = "none";
-    document.getElementById("app").style.display = "flex";
-    navigator.mediaDevices.getUserMedia({video:{facingMode:"user"}})
-      .then(s => document.getElementById("capture").srcObject = s);
-    loadChat();
-  }
-});
-
-function takeSnap() {
-  const v = document.getElementById("capture");
-  const c = document.createElement("canvas");
-  c.width = v.videoWidth; c.height = v.videoHeight;
-  c.getContext("2d").drawImage(v,0,0);
-  c.toBlob(blob => {
-    const ref = storage.ref("chirps/"+Date.now());
-    ref.put(blob).then(() => {
-      ref.getDownloadURL().then(url => {
-        db.collection("messages").add({type:"photo", url, username:myName, uid:me.uid, time:firebase.firestore.FieldValue.serverTimestamp()});
-      });
-    });
-  });
-}
-
-function send() {
-  const input = document.getElementById("msgInput");
-  if (!input.value.trim()) return;
-  db.collection("messages").add({
-    text: input.value,
-    username: myName,
-    uid: me.uid,
-    time: firebase.firestore.FieldValue.serverTimestamp()
-  });
-  input.value = "";
-}
-
-function loadChat() {
-  db.collection("messages").orderBy("time").onSnapshot(snap => {
-    const chat = document.getElementById("chat");
-    chat.innerHTML = "";
-    snap.forEach(doc => {
-      const m = doc.data();
-      const div = document.createElement("div");
-      div.className = "msg " + (m.uid === me.uid ? "me" : "other");
-      if (m.type==="photo") {
-        div.innerHTML = `<img src="${m.url}" style="max-width:100%;border-radius:14px"><span>@${m.username}</span>`;
-      } else {
-        div.innerHTML = `${m.text}<span>@${m.username}</span>`;
-      }
-      chat.appendChild(div);
-    });
-    chat.scrollTop = chat.scrollHeight;
-  });
-}
-</script>
-</body>
-
-</html>
+  const pass = docu
