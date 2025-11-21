@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chirpse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="login-page">
+  <div class="login-container">
+    <h1>Chirpse</h1>
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="username" placeholder="Username (grab chirpseadmin now)">
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="signup()">Sign Up</button>
+    <button onclick="login()">Log In</button>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
