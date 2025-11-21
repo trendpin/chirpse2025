@@ -1,0 +1,23 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial}
+#login-page{height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667ffd,#a855f7,#ff6bcb);color:white;text-align:center}
+.login-container h1{font-size:70px;margin-bottom:50px}
+.login-container input,.login-container button{width:360px;padding:18px;margin:12px;border-radius:14px;border:none;font-size:18px}
+.login-container input{background:rgba(255,255,255,0.25);color:white}
+.login-container input::placeholder{color:rgba(255,255,255,0.8)}
+.login-container button{background:white;color:#667ffd;font-weight:bold}
+.login-container button:last-child{background:#1c1e21;color:white}
+.app{min-height:100vh;background:#f0f2f5}
+header{background:#667ffd;color:white;position:fixed;top:0;width:100%;z-index:100;padding:12px 0;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 20px;font-weight:600}
+.container{max-width:560px;margin:80px auto 20px;padding:0 16px}
+.card,.create-post{background:white;border-radius:16px;padding:20px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+textarea{width:100%;border:none;outline:none;resize:none;font-size:18px;padding:12px 0}
+.post-actions{display:flex;gap:12px;margin-top:12px}
+button{background:#e4e6eb;border:none;padding:12px 20px;border-radius:12px;cursor:pointer;font-weight:600}
+.post{margin-bottom:20px;padding:16px;background:white;border-radius:16px}
+.big-avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid white;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.profile-center{text-align:center}
+#chat{max-height:70vh;overflow-y:auto;padding:10px;background:#f8f9fa;border-radius:12px}
+.msg{margin:8px 0;padding:12px 16px;border-radius:18px;max-width:80%}
+.me{background:#667ffd;color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.other{background:#e4e6eb;color:black;align-self:flex-start;border-bottom-left-radius:4px}
